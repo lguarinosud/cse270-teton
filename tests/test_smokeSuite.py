@@ -33,8 +33,7 @@ class TestSmokeSuite():
     WebDriverWait(self.driver, 30).until(expected_conditions.text_to_be_present_in_element((By.CSS_SELECTOR, ".errorMessage"), "Invalid username and password."))
   
   def test_directorypage1(self):
-    self.driver.get("http://127.0.0.1:5500/teton/1.6/index.html")
-    self.driver.find_element(By.LINK_TEXT, "Directory").click()
+    self.driver.get("http://127.0.0.1:5500/teton/1.6/directory.html")
     self.driver.set_window_size(1512, 878)
     self.driver.find_element(By.ID, "directory-grid").click()
     assert self.driver.find_element(By.CSS_SELECTOR, ".gold-member:nth-child(9) > p:nth-child(2)").text == "Teton Turf and Tree"
