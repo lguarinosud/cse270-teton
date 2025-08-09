@@ -22,7 +22,7 @@ class TestSmokeSuite():
     self.driver.quit()
   
   def test_adminpage1(self):
-    self.driver.get("http://127.0.0.1:5500/teton/1.6/admin.html")
+    self.driver.get("http://127.0.0.1:5500/teton/1.6/index.html")
     self.driver.set_window_size(1512, 886)
     self.driver.find_element(By.LINK_TEXT, "Admin").click()
     elements = self.driver.find_elements(By.ID, "username")
@@ -33,7 +33,7 @@ class TestSmokeSuite():
     WebDriverWait(self.driver, 30).until(expected_conditions.text_to_be_present_in_element((By.CSS_SELECTOR, ".errorMessage"), "Invalid username and password."))
   
   def test_directorypage1(self):
-    self.driver.get("http://127.0.0.1:5500/teton/1.6/admin.html")
+    self.driver.get("http://127.0.0.1:5500/teton/1.6/index.html")
     self.driver.find_element(By.LINK_TEXT, "Directory").click()
     self.driver.set_window_size(1512, 878)
     self.driver.find_element(By.ID, "directory-grid").click()
@@ -42,7 +42,7 @@ class TestSmokeSuite():
     assert self.driver.find_element(By.CSS_SELECTOR, ".gold-member:nth-child(9) > p:nth-child(2)").text == "Teton Turf and Tree"
   
   def test_joinpage1(self):
-    self.driver.get("https://lguarinosud.github.io/cse270-teton/join.html")
+    self.driver.get("http://127.0.0.1:5500/teton/1.6/index.html")
     self.driver.set_window_size(1512, 886)
     self.driver.find_element(By.LINK_TEXT, "Join").click()
     elements = self.driver.find_elements(By.NAME, "fname")
@@ -60,7 +60,7 @@ class TestSmokeSuite():
     assert len(elements) > 0
   
   def test_homepage1(self):
-    self.driver.get("http://127.0.0.1:5500/teton/1.6/admin.html")
+    self.driver.get("http://127.0.0.1:5500/teton/1.6/index.html")
     elements = self.driver.find_elements(By.CSS_SELECTOR, ".header-logo img")
     assert len(elements) > 0
     assert self.driver.find_element(By.CSS_SELECTOR, ".header-title > h1").text == "Teton Idaho"
@@ -68,7 +68,7 @@ class TestSmokeSuite():
     assert self.driver.title == "Teton Idaho CoC"
   
   def test_homepage2(self):
-    self.driver.get("http://127.0.0.1:5500/teton/1.6/admin.html")
+    self.driver.get("http://127.0.0.1:5500/teton/1.6/index.html")
     self.driver.set_window_size(1519, 1173)
     self.driver.find_element(By.CSS_SELECTOR, ".spotlight1 ").click()
     elements = self.driver.find_elements(By.CSS_SELECTOR, ".spotlight2")
