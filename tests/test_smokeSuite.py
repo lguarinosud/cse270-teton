@@ -34,6 +34,9 @@ class TestSmokeSuite():
   
   def test_directorypage1(self):
     self.driver.get("http://127.0.0.1:5500/teton/1.6/index.html")
+    WebDriverWait(self.driver, 2).until(
+      expected_conditions.element_to_be_clickable((By.LINK_TEXT, "Directory"))
+    )
     self.driver.find_element(By.LINK_TEXT, "Directory").click()
     self.driver.set_window_size(1512, 878)
     self.driver.find_element(By.ID, "directory-grid").click()
